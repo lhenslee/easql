@@ -38,7 +38,7 @@ class Easql(MySQLConnection):
             data = list(cursor.stored_results())
             if dictionary:
                 for i, item in enumerate(data):
-                    print(item)
+                    print(item.fetchall())
                     data[i] = list(item)
                     print(list(item))
         self.disconnect()
