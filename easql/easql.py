@@ -39,7 +39,7 @@ class Easql(MySQLConnection):
             if dictionary:
                 for i, item in enumerate(data):
                     print(item)
-                    data[i] = dict(item)
-                    print(dict(item))
+                    data[i] = list(item)
+                    print(list(item))
         self.disconnect()
         return data
