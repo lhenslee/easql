@@ -36,5 +36,8 @@ class Easql(MySQLConnection):
             if update:
                 self.commit()
             data = list(cursor.stored_results())
+            if dictionary:
+                for i, item in enumerate(data):
+                    data[i] = dict(item)
         self.disconnect()
         return data
