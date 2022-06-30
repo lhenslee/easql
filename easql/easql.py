@@ -14,7 +14,7 @@ class Easql(MySQLConnection):
         if not self.is_connected():
             self.reconnect()
         with self.cursor(dictionary=dictionary) as cursor:
-            cursor.execute(stmt, args, **kwargs)
+            cursor.execute(stmt, args, kwargs)
             if update:
                 self.commit()
             data = cursor.fetchall()
@@ -41,3 +41,6 @@ class Easql(MySQLConnection):
                     data[i] = item.fetchall()
         self.disconnect()
         return data
+
+    def update(self, query, *args, **kwargs):
+        self.query(query, *args, **kwargs)
