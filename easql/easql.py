@@ -43,4 +43,4 @@ class Easql(MySQLConnection):
         return data
 
     def update(self, query, *args, **kwargs):
-        self.query(query, *args, **kwargs)
+        self.query(query, *args, update=True, **kwargs)
